@@ -36,7 +36,6 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
       <a class="text-2xl font-black" href={getRelativeLocaleUrl(lang, "/")}>
         GKŠM Labs
       </a>
-
       <button
         id="hamburger"
         type="button"
@@ -73,7 +72,6 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
         </svg>
       </button>
     </div>
-
     <div class="hidden flex-wrap items-center gap-x-6 gap-y-4 md:flex">
       <ul class="flex items-center gap-6">
         {
@@ -91,7 +89,6 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
       </ul>
       <LanguageSelector lang={lang} />
     </div>
-
     <div
       id="mobile-nav"
       class="fixed top-16 right-4 z-35 hidden w-60 scale-95 transform flex-col gap-1 rounded-lg border border-zinc-200 bg-white px-4 py-4 text-base font-medium opacity-0 shadow-lg transition-all duration-200 md:hidden"
@@ -119,12 +116,12 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
             <li>
               <a
                 class:list={[
-                  Astro.currentLocale === key
+                  lang === key
                     ? "cursor-default text-amber-600"
                     : "text-zinc-700 hover:underline",
                 ]}
                 href={
-                  Astro.currentLocale === key
+                  lang === key
                     ? undefined
                     : getRelativeLocaleUrl(key, strippedPath)
                 }
@@ -145,7 +142,6 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
 
       function setNav(open) {
         isNavOpen = open;
-
         mobileNav.classList.toggle("hidden", !isNavOpen);
         setTimeout(
           () => {
@@ -154,14 +150,10 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
           },
           isNavOpen ? 10 : 0,
         );
-
         hamburger.setAttribute("aria-expanded", isNavOpen ? "true" : "false");
         hamburgerIcon.classList.toggle("hidden", isNavOpen);
         closeIcon.classList.toggle("hidden", !isNavOpen);
-
-        if (isNavOpen) {
-          setTimeout(() => mobileNav.focus(), 100);
-        }
+        if (isNavOpen) setTimeout(() => mobileNav.focus(), 100);
       }
       hamburger &&
         hamburger.addEventListener("click", () => setNav(!isNavOpen));
@@ -172,26 +164,18 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
           e.preventDefault();
           setNav(!isNavOpen);
         }
-
-        if (isNavOpen && (e.key === "Escape" || e.key === "Esc")) {
-          setNav(false);
-        }
+        if (isNavOpen && (e.key === "Escape" || e.key === "Esc")) setNav(false);
       });
-
       window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768 && isNavOpen) {
-          setNav(false);
-        }
+        if (window.innerWidth >= 768 && isNavOpen) setNav(false);
       });
-
       document.addEventListener("click", (e) => {
         if (
           isNavOpen &&
           !mobileNav.contains(e.target) &&
           !hamburger.contains(e.target)
-        ) {
+        )
           setNav(false);
-        }
       });
     </script>
   </nav>
