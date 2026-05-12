@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: var(--font-space-grotesk);
+    scrollbar-width: thin;
+    scrollbar-color: #27272a #09090b;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  ::selection {
+    @apply bg-emerald-200 text-emerald-950;
+  }
+
+  :focus-visible {
+    @apply ring-2 ring-emerald-600 ring-offset-0 outline-0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 100px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+@keyframes liquid-wobble {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-1px) rotate(1.5deg);
+  }
+}
+.animate-liquid {
+  animation: liquid-wobble 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+    transform: translateY(-2px) scale(1);
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-13px) scale(1.4);
+    opacity: 0;
+  }
+}
+.bubble {
+  animation: bubble-rise 2s infinite ease-in;
+  transform-origin: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
