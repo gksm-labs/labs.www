@@ -3,16 +3,25 @@ import "../styles/global.css";
 import { getAbsoluteLocaleUrl } from "astro:i18n";
 import type { SupportedLang } from "../data/supportedLang";
 import { Font } from "astro:assets";
+import Navigation from "../components/Navigation.astro";
 
 interface Props {
   lang: SupportedLang;
+  title?: string;
+  description?: string;
+  noIndexNoFollow?: boolean;
 }
 
-const { lang } = Astro.props;
+const { lang, title, description, noIndexNoFollow } = Astro.props;
 
 const DEFAULT_TRANSLATIONS: Record<
   SupportedLang,
-  { title: string; description: string; author: string[]; publisher: string }
+  {
+    title: string;
+    description: string;
+    author: string[];
+    publisher: string;
+  }
 > = {
   sk: {
     title: "GKŠM Labs",
@@ -41,18 +50,25 @@ const canonicalPath =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={t.description} />
+    <meta
+      name="description"
+      content={description ? description : t.description}
+    />
     <meta name="theme-color" content="#ffba00" />
     <meta name="author" content={t.author.join(", ")} />
     <meta name="publisher" content={t.publisher} />
+    {noIndexNoFollow && <meta name="robots" content="noindex, nofollow" />}
 
-    <meta property="og:title" content={t.title} />
-    <meta property="og:description" content={t.description} />
+    <meta property="og:title" content={title ? title : t.title} />
+    <meta
+      property="og:description"
+      content={description ? description : t.description}
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:locale" content={lang === "sk" ? "sk_SK" : "en_US"} />
 
-    <title>{t.title}</title>
+    <title>{title ? title : t.title}</title>
 
     <!-- i18n -->
     <link rel="canonical" href={Astro.url.href} />
@@ -73,7 +89,8 @@ const canonicalPath =
 
     <Font cssVariable="--font-space-grotesk" preload />
   </head>
-  <body class="bg-zinc-950 text-zinc-50 antialiased">
+  <body class="antialiased">
+    <Navigation lang={lang} />
     <slot />
   </body>
 </html>
