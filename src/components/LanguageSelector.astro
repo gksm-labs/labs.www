@@ -73,6 +73,7 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
   role="dialog"
   aria-modal="true"
   aria-labelledby="lang-modal-title"
+  aria-hidden="true"
   class="pointer-events-none fixed inset-0 z-50 flex scale-95 items-center justify-center px-4 opacity-0 transition-all duration-300"
 >
   <div
@@ -181,6 +182,7 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
         );
         modalWrapper?.classList.add("scale-100");
         trigger?.setAttribute("aria-expanded", "true");
+        modalWrapper?.setAttribute("aria-hidden", "false");
         close?.focus();
         document.body.style.overflow = "hidden";
       } else {
@@ -192,6 +194,7 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
         );
         modalWrapper?.classList.remove("scale-100");
         trigger?.setAttribute("aria-expanded", "false");
+        modalWrapper?.setAttribute("aria-hidden", "true");
         trigger?.focus();
         document.body.style.overflow = "";
       }

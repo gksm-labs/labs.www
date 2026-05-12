@@ -75,11 +75,3 @@
     opacity: 1;
   }
 }
-.fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
