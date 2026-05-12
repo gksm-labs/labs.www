@@ -3,12 +3,17 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
+  site: "https://labs.gksm.sk",
+
   vite: {
     // @ts-ignore: avoid Vite/Astro duplicate vite types mismatch for plugin
     plugins: [tailwindcss()],
   },
+
   i18n: {
     locales: ["sk", "en"],
     defaultLocale: "sk",
@@ -16,6 +21,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+
   fonts: [
     {
       name: "Space Grotesk",
@@ -25,4 +31,6 @@ export default defineConfig({
       subsets: ["latin", "latin-ext"],
     },
   ],
+
+  integrations: [sitemap()],
 });

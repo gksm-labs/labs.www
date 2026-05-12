@@ -1,0 +1,2 @@
+# Sitemaps
+Sitemap: https://labs.gksm.sk/sitemap-index.xml
