@@ -10,7 +10,6 @@ export default defineConfig({
   site: "https://labs.gksm.sk",
 
   vite: {
-    // @ts-ignore: avoid Vite/Astro duplicate vite types mismatch for plugin
     plugins: [tailwindcss()],
   },
 
