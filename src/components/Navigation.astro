@@ -153,7 +153,6 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
         hamburger.setAttribute("aria-expanded", isNavOpen ? "true" : "false");
         hamburgerIcon.classList.toggle("hidden", isNavOpen);
         closeIcon.classList.toggle("hidden", !isNavOpen);
-        if (isNavOpen) setTimeout(() => mobileNav.focus(), 100);
       }
       hamburger &&
         hamburger.addEventListener("click", () => setNav(!isNavOpen));
