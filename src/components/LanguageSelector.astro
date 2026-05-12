@@ -74,6 +74,8 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
   aria-modal="true"
   aria-labelledby="lang-modal-title"
   aria-hidden="true"
+  hidden
+  inert
   class="pointer-events-none fixed inset-0 z-50 flex scale-95 items-center justify-center px-4 opacity-0 transition-all duration-300"
 >
   <div
@@ -172,46 +174,50 @@ const strippedPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
 
     if (!trigger || !modalWrapper) return;
 
-    function toggleModal(isOpen: boolean) {
-      if (isOpen) {
-        backdrop?.classList.remove("opacity-0", "pointer-events-none");
-        modalWrapper?.classList.remove(
-          "opacity-0",
-          "pointer-events-none",
-          "scale-95",
-        );
-        modalWrapper?.classList.add("scale-100");
-        trigger?.setAttribute("aria-expanded", "true");
-        modalWrapper?.setAttribute("aria-hidden", "false");
-        close?.focus();
-        document.body.style.overflow = "hidden";
-      } else {
-        backdrop?.classList.add("opacity-0", "pointer-events-none");
-        modalWrapper?.classList.add(
-          "opacity-0",
-          "pointer-events-none",
-          "scale-95",
-        );
-        modalWrapper?.classList.remove("scale-100");
-        trigger?.setAttribute("aria-expanded", "false");
-        modalWrapper?.setAttribute("aria-hidden", "true");
-        trigger?.focus();
-        document.body.style.overflow = "";
-      }
+    function openModal() {
+      backdrop?.classList.remove("opacity-0", "pointer-events-none");
+      modalWrapper?.classList.remove(
+        "opacity-0",
+        "pointer-events-none",
+        "scale-95",
+      );
+      modalWrapper?.classList.add("scale-100");
+      trigger?.setAttribute("aria-expanded", "true");
+      modalWrapper?.setAttribute("aria-hidden", "false");
+      modalWrapper?.removeAttribute("hidden");
+      modalWrapper?.removeAttribute("inert");
+      close?.focus();
+      document.body.style.overflow = "hidden";
     }
 
-    trigger.addEventListener("click", () => toggleModal(true));
-    close?.addEventListener("click", () => toggleModal(false));
-    backdrop?.addEventListener("click", () => toggleModal(false));
+    function closeModal() {
+      backdrop?.classList.add("opacity-0", "pointer-events-none");
+      modalWrapper?.classList.add(
+        "opacity-0",
+        "pointer-events-none",
+        "scale-95",
+      );
+      modalWrapper?.classList.remove("scale-100");
+      trigger?.setAttribute("aria-expanded", "false");
+      modalWrapper?.setAttribute("aria-hidden", "true");
+      modalWrapper?.setAttribute("inert", "");
+      modalWrapper?.setAttribute("hidden", "");
+      trigger?.focus();
+      document.body.style.overflow = "";
+    }
+
+    trigger.addEventListener("click", openModal);
+    close?.addEventListener("click", closeModal);
+    backdrop?.addEventListener("click", closeModal);
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && !modalWrapper.classList.contains("opacity-0")) {
-        toggleModal(false);
+        closeModal();
       }
     });
 
     modalWrapper.addEventListener("click", (e) => {
-      if (e.target === modalWrapper) toggleModal(false);
+      if (e.target === modalWrapper) closeModal();
     });
   }
 
