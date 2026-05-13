@@ -8,7 +8,7 @@ export const translation = {
     members: [
       {
         name: "Jozef Steinhübl",
-        title: "Programátor",
+        note: "",
         avatar: "/members/jozefsteinhubl.png",
         mail: "jozef@steinhubl.com",
         github: "xhyrom",
@@ -17,7 +17,7 @@ export const translation = {
       },
       {
         name: "Peter Packa",
-        title: "Programátor",
+        note: "",
         avatar: "/members/peterpacka.png",
         mail: "pitr@iampitr.dev",
         github: "peterpacka",
@@ -25,6 +25,7 @@ export const translation = {
         instagram: "ten_peter_",
       },
     ],
+    projects: [],
   },
   en: {
     nav: {
@@ -35,7 +36,7 @@ export const translation = {
     members: [
       {
         name: "Jozef Steinhübl",
-        title: "Programmer",
+        note: "",
         avatar: "/members/jozefsteinhubl.png",
         mail: "jozef@steinhubl.com",
         github: "xhyrom",
@@ -44,7 +45,7 @@ export const translation = {
       },
       {
         name: "Peter Packa",
-        title: "Programmer",
+        note: "",
         avatar: "/members/peterpacka.png",
         mail: "pitr@iampitr.dev",
         github: "peterpacka",
@@ -52,5 +53,6 @@ export const translation = {
         instagram: "ten_peter_",
       },
     ],
+    projects: [],
   },
 };

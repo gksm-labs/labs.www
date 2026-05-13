@@ -65,9 +65,11 @@ const members = translation["en"].members;
               )}
 
               <h3 class="text-lg font-bold text-gray-900">{member.name}</h3>
-              <div class="mb-2 font-semibold text-amber-600">
-                {member.title}
-              </div>
+              {member.note && (
+                <div class="mb-2 text-sm font-semibold text-amber-600">
+                  "{member.note}"
+                </div>
+              )}
 
               <div class="mt-4 flex w-full flex-col items-center gap-1.5 text-xs">
                 {member.mail && (
