@@ -1,12 +1,138 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+
+import schoolImage from "../../assets/img/school.png";
 ---
 
 <Layout lang="en">
   <Fragment slot="head">
+    <meta
+      name="description"
+      content="GKŠM Labs is a student organization at Gymnázium Karola Štúra in Modra. Connecting students who want to create real, valuable projects for their school and community."
+    />
+    <meta name="author" content="Peter Packa" />
+    <meta
+      name="keywords"
+      content="GKŠM Labs, students, Modra, school organization, projects, Gymnázium Karola Štúra, school projects, community, IT, student activities"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About Us | GKŠM Labs" />
+    <meta
+      property="og:description"
+      content="GKŠM Labs is a student organization at Gymnázium Karola Štúra in Modra. Real projects by students."
+    />
+    <meta property="og:url" content="https://labs.gksm.sk/en" />
+    <meta property="og:image" content={schoolImage.src} />
+    <meta property="og:site_name" content="GKŠM Labs" />
+    <meta property="og:locale" content="en_US" />
+
+    <link rel="canonical" href="https://labs.gksm.sk/en" />
+    <link rel="alternate" href="https://labs.gksm.sk" hreflang="sk" />
+    <link rel="alternate" href="https://labs.gksm.sk/en" hreflang="en" />
+
     <title>About us | GKŠM Labs</title>
   </Fragment>
-  <main>
-    <div></div>
+  <main class="mt-26 min-h-screen">
+    <section
+      class="mx-auto flex min-h-176 max-w-5xl flex-col items-center justify-center px-4 py-12"
+    >
+      <h1
+        class="mb-16 text-center text-4xl font-black underline decoration-amber-400 decoration-wavy sm:text-5xl"
+      >
+        We are students who make things happen
+      </h1>
+      <div
+        class="flex w-full flex-col justify-center gap-8 md:flex-row md:items-start"
+      >
+        <div
+          class="mb-4 flex w-full justify-center md:mb-0 md:w-1/4 md:justify-end"
+        >
+          <Image
+            src={schoolImage}
+            alt="Picture of the school"
+            class="w-full max-w-60 object-cover shadow md:w-auto md:-rotate-3"
+          />
+        </div>
+        <div class="md:w-2/4">
+          <p class="mb-4 text-center text-lg sm:text-xl md:text-left">
+            <span class="font-black">GKŠM Labs</span> is a student organization at&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Karol Štúr Gymnasium in Modra
+            </a>. We connect students who want to create real things for their
+            school, from websites to projects that are used daily by both
+            students and teachers.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            We are not just another school club; we are a group of students who
+            decided to do more for their school than others. We were created by
+            the initiative of students themselves who wanted to make something
+            real and meaningful. Something that the school actually uses, which
+            has a real impact on the daily lives of both students and teachers.
+            We do everything from websites, graphic design, to other projects
+            that make the whole school run smoother. Every project we create
+            doesn’t collect dust in a drawer; it lives on and serves the people
+            around us.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Our members are students of various years, united by one thinga
+            desire to create something meaningful. They work in teams, where
+            everyone contributes in their own way. Some code, some design, some
+            organize. We don’t require experience or technical knowledge, just
+            an interest and willingness to get involved. In GKŠM Labs, everyone
+            learns something, and everyone leaves something behind.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            However, we are not a closed community just for the students
+            of&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Karol Štúr Gymnasium
+            </a>. We also collaborate with students from other schools who share
+            the same enthusiasm and desire to create. This cooperation brings us
+            new perspectives, ideas, and experiences that make our projects even
+            better. We believe that together, we can achieve more.
+          </p>
+          <p
+            class="text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            We believe that students can create things of real valuenot sometime
+            in the future, but right now. That’s why we do more for the school
+            than others, and that’s what motivates us to keep moving forward
+            every day.
+          </p>
+          <p class="mt-8 text-center text-xs text-gray-500 md:text-left">
+            This page is not the official page of the&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Karol Štúr Gymnasium in Modra
+            </a>. It is a student project and a presentation of the club <span
+              class="font-black">GKŠM Labs</span
+            >.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>

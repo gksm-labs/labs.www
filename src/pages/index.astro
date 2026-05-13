@@ -1,12 +1,135 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+
+import schoolImage from "../assets/img/school.png";
 ---
 
 <Layout lang="sk">
   <Fragment slot="head">
+    <meta
+      name="description"
+      content="GKŠM Labs je študentská organizácia Gymnázia Karola Štúra v Modre. Spájame študentov, ktorí chcú tvoriť skutočné, hodnotné projekty pre svoju školu a komunitu."
+    />
+    <meta name="author" content="Peter Packa" />
+    <meta
+      name="keywords"
+      content="GKŠM Labs, študenti, Modra, školská organizácia, projekty, Gymnázium Karola Štúra, školské projekty, komunita, IT, študentské aktivity"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="O spolku | GKŠM Labs" />
+    <meta
+      property="og:description"
+      content="GKŠM Labs je študentská organizácia Gymnázia Karola Štúra v Modre. Skutočné projekty vytvorené študentmi."
+    />
+    <meta property="og:url" content="https://labs.gksm.sk" />
+    <meta property="og:image" content={schoolImage.src} />
+    <meta property="og:site_name" content="GKŠM Labs" />
+    <meta property="og:locale" content="sk_SK" />
+
+    <link rel="canonical" href="https://labs.gksm.sk" />
+    <link rel="alternate" href="https://labs.gksm.sk" hreflang="sk" />
+    <link rel="alternate" href="https://labs.gksm.sk/en" hreflang="en" />
+
     <title>O spolku | GKŠM Labs</title>
   </Fragment>
-  <main>
-    <div></div>
+  <main class="mt-26 min-h-screen">
+    <section
+      class="mx-auto flex min-h-176 max-w-5xl flex-col items-center justify-center px-4 py-12"
+    >
+      <h1
+        class="mb-16 text-center text-4xl font-black underline decoration-amber-400 decoration-wavy sm:text-5xl"
+      >
+        Sme študenti, ktorí niečo robia
+      </h1>
+      <div
+        class="flex w-full flex-col justify-center gap-8 md:flex-row md:items-start"
+      >
+        <div
+          class="mb-4 flex w-full justify-center md:mb-0 md:w-1/4 md:justify-end"
+        >
+          <Image
+            src={schoolImage}
+            alt="Obrázok školy"
+            class="w-full max-w-60 object-cover shadow md:w-auto md:-rotate-3"
+          />
+        </div>
+        <div class="md:w-2/4">
+          <p class="mb-4 text-center text-lg sm:text-xl md:text-left">
+            <span class="font-black">GKŠM Labs</span> je študentská organizácia&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Gymnázia Karola Štúra v Modre
+            </a>. Spájame študentov, ktorí chcú pre svoju školu vytvárať
+            skutočné veci, od webových stránok až po projekty, ktoré každý deň
+            využívajú spolužiaci aj učitelia.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Nie sme len ďalší školský krúžok, sme skupina študentov, ktorá sa
+            rozhodla robiť pre svoju školu viac ako ostatní. Vznikli sme z
+            iniciatívy samotných študentov, ktorí chceli tvoriť niečo skutočné a
+            zmysluplné. Niečo, čo škola naozaj využíva a čo má reálny dopad na
+            každodenný život spolužiakov aj učiteľov. Robíme všetko od webových
+            stránok, cez grafiku a dizajn, až po ďalšie projekty, ktoré uľahčujú
+            chod celej školy. Každý projekt, ktorý vytvoríme, nesedí v šuplíku,
+            žije ďalej a slúži ľuďom okolo nás.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Naši členovia sú študenti rôznych ročníkov, ktorých spája jedno,
+            chuť tvoriť niečo zmysluplné. Pracujú v tímoch, kde každý prispieva
+            svojim spôsobom. Niekto kóduje, niekto navrhuje, niekto organizuje.
+            Nevyžadujeme skúsenosti ani technické znalosti, stačí záujem a
+            ochota pustiť sa do práce. V GKŠM Labs sa každý niečo naučí a každý
+            zanechá niečo po sebe.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Nie sme však uzavretá komunita len pre študentov&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Gymnázia Karola Štúra
+            </a>. Spolupracujeme aj so študentmi z iných škôl, ktorí zdieľajú
+            rovnaké nadšenie a chuť tvoriť. Táto spolupráca nám prináša nové
+            pohľady, nápady a skúsenosti, vďaka ktorým sú naše projekty ešte
+            lepšie. Veríme, že spoločne dokážeme viac.
+          </p>
+          <p
+            class="text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Veríme, že študenti dokážu tvoriť veci, ktoré majú skutočnú hodnotu.
+            Nie niekedy v budúcnosti, ale už teraz. Preto robíme pre školu viac
+            ako ostatní a práve to nás každý deň motivuje ísť ďalej.
+          </p>
+          <p class="mt-8 text-center text-xs text-gray-500 md:text-left">
+            Táto stránka nie je oficiálna stránka&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Gymnázia Karola Štúra v Modre
+            </a>. Je to študentský projekt a prezentácia spolku <span
+              class="font-black">GKŠM Labs</span
+            >.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
