@@ -1,96 +1,21 @@
 ---
 import "../styles/global.css";
-import { getAbsoluteLocaleUrl } from "astro:i18n";
-import type { SupportedLang } from "../data/supportedLang";
+import Navigation from "../components/nav/Navigation";
 import { Font } from "astro:assets";
-import Navigation from "../components/Navigation.astro";
 
-interface Props {
-  lang: SupportedLang;
-  title?: string;
-  description?: string;
-  noIndexNoFollow?: boolean;
-}
-
-const { lang, title, description, noIndexNoFollow } = Astro.props;
-
-const DEFAULT_TRANSLATIONS: Record<
-  SupportedLang,
-  {
-    title: string;
-    description: string;
-    author: string[];
-    publisher: string;
-  }
-> = {
-  sk: {
-    title: "GKŠM Labs",
-    description:
-      "GKŠM Labs – Zdieľame študentské projekty, kódovacie experimenty a výskumnú činnosť.",
-    author: ["Jozef Steinhübl, Peter Packa"],
-    publisher: "GKŠM Labs",
-  },
-  en: {
-    title: "GKŠM Labs",
-    description:
-      "GKŠM Labs - We share student projects, coding experiments, and research work.",
-    author: ["Jozef Steinhübl, Peter Packa"],
-    publisher: "GKŠM Labs",
-  },
-};
-
-const t = DEFAULT_TRANSLATIONS[lang];
-
-const canonicalPath =
-  Astro.url.pathname.replace(new RegExp(`^/${lang}`), "") || "/";
+const { lang } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content={description ? description : t.description}
-    />
-    <meta name="theme-color" content="#ffba00" />
-    <meta name="author" content={t.author.join(", ")} />
-    <meta name="publisher" content={t.publisher} />
-    {noIndexNoFollow && <meta name="robots" content="noindex, nofollow" />}
-
-    <meta property="og:title" content={title ? title : t.title} />
-    <meta
-      property="og:description"
-      content={description ? description : t.description}
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:locale" content={lang === "sk" ? "sk_SK" : "en_US"} />
-
-    <title>{title ? title : t.title}</title>
-
-    <!-- i18n -->
-    <link rel="canonical" href={Astro.url.href} />
-    {
-      Object.keys(DEFAULT_TRANSLATIONS).map((code) => (
-        <link
-          rel="alternate"
-          hreflang={code}
-          href={getAbsoluteLocaleUrl(code as SupportedLang, canonicalPath)}
-        />
-      ))
-    }
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href={getAbsoluteLocaleUrl("sk", canonicalPath)}
-    />
-
-    <Font cssVariable="--font-space-grotesk" preload />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Font cssVariable="--font-space-grotesk" />
+    <slot name="head" />
   </head>
-  <body class="antialiased">
-    <Navigation lang={lang} />
+  <body>
+    <Navigation client:load lang={lang} pathname={Astro.url.pathname} />
     <slot />
   </body>
 </html>
