@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Project from "../../components/projects/Project";
 import { translation } from "../../i18n/translation";
 
-const projects = translation["en"].projects;
+const projects = translation?.en?.projects || [];
 ---
 
 <Layout lang="en">

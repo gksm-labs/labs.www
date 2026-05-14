@@ -12,12 +12,18 @@ export function getNavLinks(lang: SupportedLang) {
   }));
 }
 
+function normalizePath(p: string) {
+  if (!p) return "/";
+  return p.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
+}
+
 export function getRouteKeyByPath(
   pathname: string,
   lang: SupportedLang,
 ): string | undefined {
+  const normalizedPath = normalizePath(pathname);
   for (const key of Object.keys(routes) as RouteKey[]) {
-    if (routes[key][lang] === pathname) {
+    if (normalizePath(routes[key][lang]) === normalizedPath) {
       return key;
     }
   }
