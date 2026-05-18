@@ -25,7 +25,10 @@ import schoolImage from "../../assets/img/school.png";
       content="GKŠM Labs is a student organization at Gymnázium Karola Štúra in Modra. Real projects by students."
     />
     <meta property="og:url" content="https://labs.gksm.sk/en" />
-    <meta property="og:image" content={schoolImage.src} />
+    <meta
+      property="og:image"
+      content={"https://labs.gksm.sk" + schoolImage.src}
+    />
     <meta property="og:site_name" content="GKŠM Labs" />
     <meta property="og:locale" content="en_US" />
 
@@ -86,7 +89,7 @@ import schoolImage from "../../assets/img/school.png";
           <p
             class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
           >
-            Our members are students of various years, united by one thinga
+            Our members are students of various years, united by one thing a
             desire to create something meaningful. They work in teams, where
             everyone contributes in their own way. Some code, some design, some
             organize. We don’t require experience or technical knowledge, just
