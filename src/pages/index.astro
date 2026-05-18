@@ -1,144 +1,138 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+
+import schoolImage from "../assets/img/school.png";
 ---
 
 <Layout lang="sk">
-  <main
-    class="flex min-h-160 items-center justify-center bg-white px-6 text-zinc-900 md:px-12"
-  >
-    <div
-      class="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 md:flex-row md:gap-24"
+  <Fragment slot="head">
+    <meta
+      name="description"
+      content="GKŠM Labs je študentská organizácia Gymnázia Karola Štúra v Modre. Spájame študentov, ktorí chcú tvoriť skutočné, hodnotné projekty pre svoju školu a komunitu."
+    />
+    <meta name="author" content="Peter Packa" />
+    <meta
+      name="keywords"
+      content="GKŠM Labs, študenti, Modra, školská organizácia, projekty, Gymnázium Karola Štúra, školské projekty, komunita, IT, študentské aktivity"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="O spolku | GKŠM Labs" />
+    <meta
+      property="og:description"
+      content="GKŠM Labs je študentská organizácia Gymnázia Karola Štúra v Modre. Skutočné projekty vytvorené študentmi."
+    />
+    <meta property="og:url" content="https://labs.gksm.sk" />
+    <meta
+      property="og:image"
+      content={"https://labs.gksm.sk" + schoolImage.src}
+    />
+    <meta property="og:site_name" content="GKŠM Labs" />
+    <meta property="og:locale" content="sk_SK" />
+
+    <link rel="canonical" href="https://labs.gksm.sk" />
+    <link rel="alternate" href="https://labs.gksm.sk" hreflang="sk" />
+    <link rel="alternate" href="https://labs.gksm.sk/en" hreflang="en" />
+
+    <title>O spolku | GKŠM Labs</title>
+  </Fragment>
+  <main class="mt-26 min-h-screen">
+    <section
+      class="mx-auto flex min-h-176 max-w-5xl flex-col items-center justify-center px-4 py-12"
     >
-      <div class="relative flex shrink-0 items-center justify-center">
-        <div
-          class="absolute inset-0 h-full w-full scale-75 transform rounded-full bg-amber-200/50 blur-[60px]"
-        >
-        </div>
-
-        <svg
-          class="relative z-10 h-56 w-56 text-zinc-900 md:h-80 md:w-80"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="0.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <!-- Masking the liquid to stay inside the flask outline -->
-            <clipPath id="flask-clip">
-              <path
-                d="M9 2v6.5L3.8 19.3A2 2 0 0 0 5.6 22h12.8a2 2 0 0 0 1.8-2.7L15 8.5V2"
-              ></path>
-            </clipPath>
-          </defs>
-
-          <!-- Animated Liquid & Bubbles -->
-          <g clip-path="url(#flask-clip)">
-            <!-- Yellow liquid base -->
-            <rect
-              x="-5"
-              y="11"
-              width="34"
-              height="15"
-              fill="#fbbf24"
-              stroke="none"
-              class="animate-liquid"></rect>
-
-            <!-- Rising Bubbles -->
-            <circle
-              cx="8"
-              cy="22"
-              r="1.5"
-              fill="white"
-              stroke="none"
-              class="bubble"
-              style="animation-delay: 0s;"></circle>
-            <circle
-              cx="15"
-              cy="22"
-              r="1"
-              fill="white"
-              stroke="none"
-              class="bubble"
-              style="animation-delay: 0.7s;"></circle>
-            <circle
-              cx="11"
-              cy="22"
-              r="2"
-              fill="white"
-              stroke="none"
-              class="bubble"
-              style="animation-delay: 1.4s;"></circle>
-            <circle
-              cx="17"
-              cy="22"
-              r="1.2"
-              fill="white"
-              stroke="none"
-              class="bubble"
-              style="animation-delay: 2.1s;"></circle>
-            <circle
-              cx="6"
-              cy="22"
-              r="1.8"
-              fill="white"
-              stroke="none"
-              class="bubble"
-              style="animation-delay: 0.4s;"></circle>
-            <circle
-              cx="13"
-              cy="22"
-              r="0.8"
-              fill="white"
-              stroke="none"
-              class="bubble"
-              style="animation-delay: 1.1s;"></circle>
-          </g>
-
-          <path
-            d="M9 2v6.5L3.8 19.3A2 2 0 0 0 5.6 22h12.8a2 2 0 0 0 1.8-2.7L15 8.5V2"
-          ></path>
-          <path d="M8 2h8"></path>
-          <path d="M6 16h12"></path>
-        </svg>
-      </div>
-
-      <div
-        class="flex flex-col items-center text-center md:items-start md:text-left"
+      <h1
+        class="mb-16 text-center text-4xl font-black underline decoration-amber-400 decoration-wavy sm:text-5xl"
       >
-        <h1
-          class="mb-6 text-6xl leading-none font-black tracking-tighter text-zinc-900 md:text-8xl lg:text-[7.5rem]"
+        Sme študenti, ktorí niečo robia
+      </h1>
+      <div
+        class="flex w-full flex-col justify-center gap-8 md:flex-row md:items-start"
+      >
+        <div
+          class="mb-4 flex w-full justify-center md:mb-0 md:w-1/4 md:justify-end"
         >
-          GKŠM Labs
-        </h1>
-
-        <p
-          class="mb-12 text-2xl font-medium tracking-tight text-zinc-400 md:text-4xl"
-        >
-          Domov pre experimenty.
-        </p>
-
-        <a
-          href="https://github.com/gksm-labs"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-4 rounded-full bg-zinc-900 px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-zinc-200 transition-all duration-300 hover:scale-[1.02] hover:bg-amber-400 hover:text-zinc-900 active:scale-95"
-        >
-          <svg
-            class="h-7 w-7"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
+          <Image
+            src={schoolImage}
+            alt="Obrázok školy"
+            class="w-full max-w-60 object-cover shadow md:w-auto md:-rotate-3"
+          />
+        </div>
+        <div class="md:w-2/4">
+          <p class="mb-4 text-center text-lg sm:text-xl md:text-left">
+            <span class="font-black">GKŠM Labs</span> je študentská organizácia&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Gymnázia Karola Štúra v Modre
+            </a>. Spájame študentov, ktorí chcú pre svoju školu vytvárať
+            skutočné veci, od webových stránok až po projekty, ktoré každý deň
+            využívajú spolužiaci aj učitelia.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
           >
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-            ></path>
-          </svg>
-          Objavte na GitHube
-        </a>
+            Nie sme len ďalší školský krúžok, sme skupina študentov, ktorá sa
+            rozhodla robiť pre svoju školu viac ako ostatní. Vznikli sme z
+            iniciatívy samotných študentov, ktorí chceli tvoriť niečo skutočné a
+            zmysluplné. Niečo, čo škola naozaj využíva a čo má reálny dopad na
+            každodenný život spolužiakov aj učiteľov. Robíme všetko od webových
+            stránok, cez grafiku a dizajn, až po ďalšie projekty, ktoré uľahčujú
+            chod celej školy. Každý projekt, ktorý vytvoríme, nesedí v šuplíku,
+            žije ďalej a slúži ľuďom okolo nás.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Naši členovia sú študenti rôznych ročníkov, ktorých spája jedno,
+            chuť tvoriť niečo zmysluplné. Pracujú v tímoch, kde každý prispieva
+            svojim spôsobom. Niekto kóduje, niekto navrhuje, niekto organizuje.
+            Nevyžadujeme skúsenosti ani technické znalosti, stačí záujem a
+            ochota pustiť sa do práce. V GKŠM Labs sa každý niečo naučí a každý
+            zanechá niečo po sebe.
+          </p>
+          <p
+            class="mb-2 text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Nie sme však uzavretá komunita len pre študentov&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Gymnázia Karola Štúra
+            </a>. Spolupracujeme aj so študentmi z iných škôl, ktorí zdieľajú
+            rovnaké nadšenie a chuť tvoriť. Táto spolupráca nám prináša nové
+            pohľady, nápady a skúsenosti, vďaka ktorým sú naše projekty ešte
+            lepšie. Veríme, že spoločne dokážeme viac.
+          </p>
+          <p
+            class="text-center text-base text-gray-700 sm:text-lg md:text-left"
+          >
+            Veríme, že študenti dokážu tvoriť veci, ktoré majú skutočnú hodnotu.
+            Nie niekedy v budúcnosti, ale už teraz. Preto robíme pre školu viac
+            ako ostatní a práve to nás každý deň motivuje ísť ďalej.
+          </p>
+          <p class="mt-8 text-center text-xs text-gray-500 md:text-left">
+            Táto stránka nie je oficiálna stránka&nbsp;
+            <a
+              href="https://gymmo.edupage.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-amber-400 underline transition hover:text-amber-500"
+            >
+              Gymnázia Karola Štúra v Modre
+            </a>. Je to študentský projekt a prezentácia spolku <span
+              class="font-black">GKŠM Labs</span
+            >.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 </Layout>

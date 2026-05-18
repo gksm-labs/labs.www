@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Project from "../../components/projects/Project";
+import { translation } from "../../i18n/translation";
+
+const projects = translation?.en?.projects || [];
+---
+
+<Layout lang="en">
+  <Fragment slot="head">
+    <meta
+      name="description"
+      content="Discover the projects developed by GKŠM Labs, a student organization at Gymnázium Karola Štúra in Modra. Explore innovative work by our programmers, designers, and creatives."
+    />
+    <meta name="author" content="Peter Packa" />
+    <meta
+      name="keywords"
+      content="GKŠM Labs, projects, students, Modra, organization, innovation, programmers, designers, Gymnázium Karola Štúra, community, IT, development, technology"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Projects | GKŠM Labs" />
+    <meta
+      property="og:description"
+      content="Discover the projects developed by GKŠM Labs, a student organization at Gymnázium Karola Štúra in Modra. Explore our team's innovative work in IT, design and community."
+    />
+    <meta property="og:url" content="https://labs.gksm.sk/en/projects" />
+    <meta property="og:site_name" content="GKŠM Labs" />
+    <meta property="og:locale" content="en_US" />
+
+    <link rel="canonical" href="https://labs.gksm.sk/en/projects" />
+    <link rel="alternate" href="https://labs.gksm.sk/projekty" hreflang="sk" />
+    <link
+      rel="alternate"
+      href="https://labs.gksm.sk/en/projects"
+      hreflang="en"
+    />
+
+    <title>Projects | GKŠM Labs</title>
+  </Fragment>
+  <main class="mt-26 min-h-screen">
+    <section class="mx-auto max-w-5xl px-4 py-12">
+      <h1
+        class="mb-10 text-center text-4xl font-black underline decoration-amber-400 decoration-wavy"
+      >
+        Projects
+      </h1>
+      <div class="flex flex-col gap-25">
+        {
+          projects.length === 0 ? (
+            <h2 class="py-10 text-center text-xl">No current projects found</h2>
+          ) : (
+            projects.map((project) => (
+              <Project
+                client:load
+                lang="en"
+                pathname={Astro.url.pathname}
+                project={project}
+              />
+            ))
+          )
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
