@@ -210,7 +210,7 @@ const Project = ({ pathname, project, lang = "sk" }: Props) => {
       </div>
       <div className="mt-4 flex flex-1 flex-col items-center justify-center md:mt-0 md:items-start">
         <div className="flex w-full flex-wrap-reverse items-center justify-between">
-          <h2 className="mb-2 text-center text-2xl font-bold text-gray-900 md:text-left">
+          <h2 className="mb-2 text-2xl font-bold text-gray-900">
             {project.name}
           </h2>
           <button
@@ -231,7 +231,7 @@ const Project = ({ pathname, project, lang = "sk" }: Props) => {
             )}
           </button>
         </div>
-        <p className="mb-4 text-center md:text-left">{project.description}</p>
+        <p className="mb-4">{project.description}</p>
         <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
           {project.website && (
             <a
